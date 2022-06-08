@@ -1,0 +1,16 @@
+$primary-color: rgb(220, 38, 38);
+$headerHeight: 5vh;
+$sidebarWidth: 270px;
+$sidebarCollapsedWidth: 80px;
+$primaryColor: coral;
+$darkColor: black;
+$pinkColor: deeppink;
+
+:root {
+  --sidebarFullWidth: #{$sidebarWidth};
+  --sidebarCollapsedWidth: #{$sidebarCollapsedWidth};
+  --sidebarWidth: #{$sidebarCollapsedWidth};
+  --header-height: #{$headerHeight};
+  --primary-color: #{$primary-color};
+  --primary-color: #{$primary-color};
+}

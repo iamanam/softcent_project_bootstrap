@@ -1,0 +1,15 @@
+@import "../abstracts/variables.scss";
+
+.main-div {
+  width: calc(100vw - var(--sidebarWidth));
+  height: calc(100vh - #{$headerHeight});
+  overflow-y: scroll;
+  margin-left: var(--sidebarWidth);
+}
+
+.sidebar {
+  position: absolute;
+  top: $headerHeight;
+  left: 0;
+  height: calc(100vh - #{$headerHeight});
+}

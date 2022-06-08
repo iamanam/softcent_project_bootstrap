@@ -1,0 +1,22 @@
+@import "../abstracts/variables.scss";
+@import "../abstracts/mixins/btn_mixins.scss";
+
+.primary-btn {
+  @include btn-mixin();
+}
+
+.dark-btn {
+  @include btn-mixin($darkColor);
+}
+
+.primary-btn-outline {
+  @include outline-btn-mixin();
+}
+
+.dark-btn-outline {
+  @include outline-btn-mixin($darkColor);
+}
+
+.pink-btn-outline {
+  @include outline-btn-mixin($pinkColor);
+}

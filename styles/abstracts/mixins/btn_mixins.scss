@@ -1,0 +1,21 @@
+@mixin btn-base() {
+  @apply text-white font-bold py-2 px-4 rounded;
+}
+
+@mixin outline-btn-mixin($color: $primaryColor) {
+  @include btn-base();
+  border: 1px solid $color;
+  color: $color;
+  &:hover {
+    background: $color;
+    color: white;
+  }
+}
+
+@mixin btn-mixin($color: $primaryColor) {
+  @include btn-base();
+  background: $color;
+  &:hover {
+    background: rgb($color, 0.75);
+  }
+}

@@ -1,8 +1,35 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/styles.css";
+// this style is for side bar, sidebar will exist every where so put it in global scope
+import "react-pro-sidebar/dist/scss/styles.scss";
+// this style will hold all global styles
+import "../styles/app.scss";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
+
+import ChakraTheme from "../chakra.theme";
+
+import { ChakraProvider } from "@chakra-ui/react";
+
+import { SessionProvider } from "next-auth/react";
+
+import React from "react";
+
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+  const [queryClient] = React.useState(() => new QueryClient());
+
+  return (
+    <ChakraProvider theme={ChakraTheme}>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <SessionProvider session={session} refetchInterval={5 * 60}>
+            <Component {...pageProps} />
+            {/*} <ReactQueryDevtools initialIsOpen={false} /> {*/}
+          </SessionProvider>
+        </Hydrate>
+      </QueryClientProvider>
+    </ChakraProvider>
+  );
 }
-
-export default MyApp
