@@ -21,7 +21,7 @@ function SingleMenuItem({ title, href, iconName, replaceLink }) {
   );
 }
 
-export default observer(function SideBar({ currentAdminData, collapsed }) {
+export default observer(function SideBar({ collapsed }) {
   return (
     <ProSidebar collapsed={collapsed}>
       <Menu iconShape="square">

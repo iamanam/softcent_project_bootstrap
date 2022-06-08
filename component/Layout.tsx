@@ -6,8 +6,15 @@ import { RenderLoadingImage } from "./ui/Loading";
 import { signIn } from "next-auth/react";
 import { Button } from "@chakra-ui/react";
 import { observer } from "mobx-react";
+import React, { ReactElement } from "react";
 
-export default observer(function Layout({ children, breadCrumb }) {
+export default observer(function Layout({
+  children,
+  breadCrumb,
+}: {
+  children?: ReactElement;
+  breadCrumb?: any;
+}) {
   const { data: session, status } = useSession();
 
   const { isMenuCollapsed } = GlobalStore;
@@ -27,7 +34,12 @@ export default observer(function Layout({ children, breadCrumb }) {
               You aren't logged in !!
             </h2>
 
-            <Button colorScheme="red" onClick={signIn}>
+            <Button
+              colorScheme="red"
+              onClick={(e) => {
+                signIn();
+              }}
+            >
               Login
             </Button>
           </div>

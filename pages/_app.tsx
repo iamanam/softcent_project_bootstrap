@@ -14,10 +14,15 @@ import { SessionProvider } from "next-auth/react";
 
 import React from "react";
 
+type PropType = {
+  Component: any;
+  pageProps: any;
+};
+
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
-}) {
+}: PropType) {
   const [queryClient] = React.useState(() => new QueryClient());
 
   return (
